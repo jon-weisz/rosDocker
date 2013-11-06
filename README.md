@@ -13,5 +13,5 @@ To run the fresh build container simply run the command:
 
     ./run 
 
-If you'd like to configure startup of the container with the default `command` argument, change the startcontainer
+If you'd like to configure startup of the container with the default [command](http://docs.docker.io/en/latest/commandline/command/run/) argument, change the startcontainer
 script and rebuild container
