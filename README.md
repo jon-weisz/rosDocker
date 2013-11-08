@@ -7,7 +7,7 @@ Built image is available from https://index.docker.io/u/oleg/ros/
 
 To build container from dockerfile, type command in current directory:
 
-     docker build -t ros .
+     docker build -t oleg/ros .
 
 To run the fresh built container simply run:
 

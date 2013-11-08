@@ -26,6 +26,10 @@ RUN apt-get update
 #install ROS
 RUN apt-get install -y ros-hydro-ros-base
 
+#for TESTS of exposing port
+RUN apt-get install -y netcat
+
+
 # Launch bash when launching the container
 ADD startcontainer /usr/local/bin/startcontainer
 RUN chmod 755 /usr/local/bin/startcontainer
