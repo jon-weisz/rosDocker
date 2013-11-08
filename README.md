@@ -1,9 +1,9 @@
 rosDocker
 =========
 
-Docker container for the ROS (Robot Operating System). 
+Docker container for the ROS (Robot Operating System) hydro base. 
 
-Build image is available from https://index.docker.io/u/oleg/ros/
+Built image is available from https://index.docker.io/u/oleg/ros/
 
 To build container from dockerfile, type command in current directory:
 
