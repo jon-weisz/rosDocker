@@ -9,9 +9,9 @@ To build container from dockerfile, type command in current directory:
 
      docker build -t ros .
 
-To run the fresh build container simply run the command:
+To run the fresh built container simply run:
 
     ./run 
 
-If you'd like to configure startup of the container with the default [command](http://docs.docker.io/en/latest/commandline/command/run/) argument, change the startcontainer
-script and rebuild container
+If you'd like to configure launch steps of the container, fix a `startcontainer`
+script and rebuild the container
