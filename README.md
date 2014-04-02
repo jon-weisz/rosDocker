@@ -9,7 +9,7 @@ To build container from dockerfile, type command in current directory:
 
      docker build -t oleg/ros .
 
-To run the fresh built container simply run:
+To start the fresh built container simply type:
 
     ./run 
 
