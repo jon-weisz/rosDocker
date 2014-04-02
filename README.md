@@ -15,3 +15,8 @@ To start the fresh built container simply type:
 
 If you'd like to configure launch steps of the container, fix a `startcontainer`
 script and rebuild the container
+
+TODO
+---
+
+Figure out how to export ROS dynamic tcp/udp ports from docker container
