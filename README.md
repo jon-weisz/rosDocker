@@ -1,11 +1,7 @@
 rosDocker
 =========
 
-Docker container for the ROS (Robot Operating System) hydro base. 
-
-**No longer supported in favour**
-
-https://registry.hub.docker.com/u/sigproc/ros/
+Docker container for the ROS (Robot Operating System) hydro base.
 
 ====
 
