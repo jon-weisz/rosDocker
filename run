@@ -1,4 +1,4 @@
 #!/bin/bash
-docker run -t -i oleg/ros 
+docker run -t -i oleg/ros $1
 #ROSDOCKER=$(docker run -t -i -d=true oleg/ros)
 #pipework br1 $ROSDOCKER 192.168.1.1/24

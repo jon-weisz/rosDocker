@@ -1,4 +1,2 @@
 #!/bin/bash
-export PATH=$PATH:/opt/ros/indigo/bin/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/ros/indigo/lib/
 $1

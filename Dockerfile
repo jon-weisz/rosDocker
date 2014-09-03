@@ -54,7 +54,7 @@ RUN HOME=/home/ros rosdep update
 RUN mkdir -p /home/ros/workspace/src
 RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; catkin_init_workspace /home/ros/workspace/src'
 RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; cd /home/ros/workspace; catkin_make'
-RUN echo "source ~/workspace/devel/setup.bash" >> /home/ros/.bashrc
+ADD bashrc /.bashrc
 
 # Launch bash when launching the container
 ADD startcontainer /usr/local/bin/startcontainer
