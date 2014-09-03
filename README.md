@@ -18,7 +18,7 @@ script and rebuild the container
 
 Commit:
 
-    docker commit --author="MIXME" --message="MIXME" FIXME_75f05d8f7da3 oleg/ros:MIXME
+    docker commit --author="FIXME" --message="FIXME" FIXME_75f05d8f7da3 oleg/ros:FIXME
 
 Note, for starting master and child nodes in the same container use preinstalled `tmux` multiplexer of consoles
 
