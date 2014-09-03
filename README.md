@@ -20,6 +20,10 @@ Commit:
 
     docker commit --author="MIXME" --message="MIXME" FIXME_75f05d8f7da3 oleg/ros:MIXME
 
+Note
+    
+    For starting master and child nodes in the same container use preinstalled `tmux` multiplexer of consoles
+
 TODO
 ---
 

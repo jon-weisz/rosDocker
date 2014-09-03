@@ -31,7 +31,7 @@ RUN apt-get install -y ros-indigo-ros-base
 RUN apt-get install -y python-rosinstall
 
 # Install additional useful packages
-RUN apt-get install -y bash-completion git build-essential vim
+RUN apt-get install -y bash-completion git build-essential vim tmux
 
 # Initialise rosdep
 RUN rosdep init
