@@ -1,2 +1,3 @@
 #!/bin/bash
+export PATH=$PATH:/opt/ros/indigo/bin/
 $1
