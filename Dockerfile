@@ -1,11 +1,11 @@
 # Name: rosDocker
-# Description: installs ROS-hydro base in ubuntu precise environment
+# Description: installs ROS-indigo base in ubuntu trusty 14.04 environment
 #
 # VERSION       1.1
 #
 
 # Use the ubuntu base image
-FROM ubuntu:precise
+FROM ubuntu:14.04
 
 MAINTAINER Oleg Blinnikov, osblinnikov@gmail.com
 
@@ -13,22 +13,25 @@ MAINTAINER Oleg Blinnikov, osblinnikov@gmail.com
 RUN apt-get -y update
 RUN apt-get install -y debian-keyring debian-archive-keyring
 
-#install ROS key
+# install ROS key
 RUN apt-get install -y wget
-RUN wget http://packages.ros.org/ros.key -O - | apt-key add -
+RUN wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
 
-#for TESTS of exposing port
+# for TESTS of exposing port
 RUN apt-get install -y netcat
 
-#update ros repository
-RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
+# update ros repository
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 RUN apt-get update
 
-#install ROS
-RUN apt-get install -y ros-hydro-ros-base
+# install ROS
+RUN apt-get install -y ros-indigo-ros-base
+
+# enables you to easily download many source trees for ROS packages with one command
+RUN apt-get install -y python-rosinstall
 
 # Install additional useful packages
-RUN apt-get -y install bash-completion git build-essential vim
+RUN apt-get install -y bash-completion git build-essential vim
 
 # Initialise rosdep
 RUN rosdep init
@@ -46,8 +49,8 @@ RUN HOME=/home/ros rosdep update
 
 # Create a ROS workspace for the ROS user.
 RUN mkdir -p /home/ros/workspace/src
-RUN /bin/bash -c '. /opt/ros/hydro/setup.bash; catkin_init_workspace /home/ros/workspace/src'
-RUN /bin/bash -c '. /opt/ros/hydro/setup.bash; cd /home/ros/workspace; catkin_make'
+RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; catkin_init_workspace /home/ros/workspace/src'
+RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; cd /home/ros/workspace; catkin_make'
 RUN echo "source ~/workspace/devel/setup.bash" >> /home/ros/.bashrc
 
 # Launch bash when launching the container
