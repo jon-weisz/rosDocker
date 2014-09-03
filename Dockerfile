@@ -40,6 +40,9 @@ RUN rosdep init
 RUN adduser --gecos "ROS User" --disabled-password ros
 RUN usermod -a -G dialout ros
 
+ADD 99_aptget /etc/sudoers.d/99_aptget
+RUN chmod 0440 /etc/sudoers.d/99_aptget && chown root:root /etc/sudoers.d/99_aptget
+
 # And, as that user...
 USER ros
 
