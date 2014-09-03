@@ -16,6 +16,10 @@ To start the fresh built container simply type:
 If you'd like to configure launch steps of the container, fix a `startcontainer`
 script and rebuild the container
 
+Commit:
+
+    docker commit --author="MIXME" --message="MIXME" FIXME_75f05d8f7da3 oleg/ros:MIXME
+
 TODO
 ---
 
