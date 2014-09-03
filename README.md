@@ -1,7 +1,7 @@
 rosDocker
 =========
 
-Docker container for the ROS (Robot Operating System) hydro base.
+Docker container for the ROS (Robot Operating System) indigo base.
 
 ====
 
