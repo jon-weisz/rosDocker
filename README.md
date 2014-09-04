@@ -3,6 +3,8 @@ rosDocker
 
 Docker container for the ROS (Robot Operating System) indigo base.
 
+    git clone --recursive https://github.com/osblinnikov/rosDocker.git
+
 ====
 
 To build container from dockerfile, type command in current directory:
