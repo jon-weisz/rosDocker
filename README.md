@@ -15,6 +15,21 @@ To start the fresh built container simply type:
 
     ./run 
 
+Now it's time to test ros installation
+
+Browse http://127.0.0.1:6080/vnc.html
+
+Connect to the desktop and open new terminal. Launch roscore:
+
+    roscore
+
+Open one another terminal and launch turtlesim:
+
+    rosrun turtlesim turtl
+
+Be Happy!
+
+
 If you'd like to configure launch steps of the container, fix a `startcontainer`
 script and rebuild the container
 

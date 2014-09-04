@@ -22,6 +22,7 @@ RUN apt-get install -y netcat
 
 # update ros repository
 RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+RUN echo "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main\n" >> /etc/apt/sources.list
 RUN apt-get update
 
 # install ROS
@@ -36,12 +37,40 @@ RUN apt-get install -y bash-completion git build-essential vim tmux
 # Initialise rosdep
 RUN rosdep init
 
+# Adding vnc server
+# no Upstart or DBus
+# https://github.com/dotcloud/docker/issues/1724#issuecomment-26294856
+RUN apt-mark hold initscripts udev plymouth mountall
+RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/initctl
+
+RUN apt-get install -y --force-yes --no-install-recommends supervisor \
+        openssh-server pwgen sudo vim-tiny \
+        net-tools \
+        lxde x11vnc xvfb \
+        gtk2-engines-murrine ttf-ubuntu-font-family \
+        nodejs \
+    && apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
+
+
+ADD docker-ubuntu-vnc-desktop/noVNC /noVNC/
+ADD supervisord.conf /
+
+# Launch bash when launching the container
+ADD startcontainer /usr/local/bin/startcontainer
+RUN chmod 755 /usr/local/bin/startcontainer
+
 # Now create the ros user itself
 RUN adduser --gecos "ROS User" --disabled-password ros
 RUN usermod -a -G dialout ros
 
+RUN mkdir /var/run/sshd
+
 ADD 99_aptget /etc/sudoers.d/99_aptget
 RUN chmod 0440 /etc/sudoers.d/99_aptget && chown root:root /etc/sudoers.d/99_aptget
+
+RUN echo "    ForwardX11Trusted yes\n" >> /etc/ssh/ssh_config
 
 # And, as that user...
 USER ros
@@ -55,10 +84,11 @@ RUN mkdir -p /home/ros/workspace/src
 RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; catkin_init_workspace /home/ros/workspace/src'
 RUN /bin/bash -c '. /opt/ros/indigo/setup.bash; cd /home/ros/workspace; catkin_make'
 ADD bashrc /.bashrc
+ADD bashrc /home/ros/.bashrc
 
-# Launch bash when launching the container
-ADD startcontainer /usr/local/bin/startcontainer
-RUN chmod 755 /usr/local/bin/startcontainer
+RUN mkdir -p /home/ros/Desktop
+ADD xterm /home/ros/Desktop/
+
 CMD ["/bin/bash"]
 ENTRYPOINT ["/usr/local/bin/startcontainer"]
 
