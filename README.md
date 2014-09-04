@@ -25,7 +25,7 @@ Connect to the desktop and open new terminal. Launch roscore:
 
 Open one another terminal and launch turtlesim:
 
-    rosrun turtlesim turtl
+    rosrun turtlesim turtlesim_node
 
 Be Happy!
 
