@@ -37,7 +37,7 @@ Commit:
 
     docker commit --author="FIXME" --message="FIXME" FIXME_75f05d8f7da3 oleg/ros:FIXME
 
-Note, for starting master and child nodes directly from the container console, not from vlc you can use preinstalled `tmux` multiplexer of consoles
+Note, for starting master and child nodes directly from the container console (not from vnc) you can use preinstalled `tmux` multiplexer of consoles
 
 TODO
 ---
