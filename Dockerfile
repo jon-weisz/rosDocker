@@ -22,7 +22,7 @@ RUN apt-get install -y netcat
 
 # update ros repository
 RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
-RUN echo "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main\n" >> /etc/apt/sources.list
+RUN sh -c 'echo "deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main" > /etc/apt/sources.list.d/node-latest.list'
 RUN apt-get update
 
 # install ROS
