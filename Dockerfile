@@ -1,11 +1,11 @@
 # Name: rosDocker
-# Description: installs ROS-indigo base in ubuntu trusty 14.04 environment
+# Description: installs ROS-indigo base in ubuntu trusty environment
 #
 # VERSION       1.1
 #
 
 # Use the ubuntu base image
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 
 MAINTAINER Oleg Blinnikov, osblinnikov@gmail.com
 
@@ -15,7 +15,7 @@ RUN apt-get install -y debian-keyring debian-archive-keyring
 
 # install ROS key
 RUN apt-get install -y wget
-RUN wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
+RUN wget --no-check-certificate https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | apt-key add -
 
 # for TESTS of exposing port
 RUN apt-get install -y netcat
