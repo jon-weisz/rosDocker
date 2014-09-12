@@ -3,13 +3,16 @@ rosDocker
 
 Docker container for the ROS (Robot Operating System) indigo base.
 
-    git clone --recursive https://github.com/osblinnikov/rosDocker.git
+get from docker hub:
 
-====
+    docker pull osblinnikov/ros
+    docker run -p 6080:6080 -v `pwd`/workspaceSrc:/home/ros/workspace/src -t -i osblinnikov/ros
 
-To build container from dockerfile, type command in current directory:
+or to build container from dockerfile, type command in current directory:
 
-     docker build -t oleg/ros .
+    git clone https://github.com/osblinnikov/rosDocker.git
+    cd rosDocker
+    docker build -t osblinnikov/ros .
 
 To start the fresh built container simply type:
 
@@ -35,11 +38,11 @@ script and rebuild the container
 
 Commit:
 
-    docker commit --author="FIXME" --message="FIXME" FIXME_75f05d8f7da3 oleg/ros:FIXME
+    docker commit --author="FIXME" --message="FIXME" FIXME_75f05d8f7da3 osblinnikov/ros:FIXME
 
 Note, for starting master and child nodes directly from the container console (not from vnc) you can use preinstalled `tmux` multiplexer of consoles
 
 TODO
 ---
 
-Figure out how to export ROS dynamic tcp/udp ports from docker container
+Figure out how to export ROS dynamic tcp/udp ports from docker container. Seems like [coreos-rudder](https://coreos.com/blog/introducing-rudder/) can help with providing virtual network

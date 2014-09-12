@@ -55,7 +55,7 @@ RUN apt-get install -y --force-yes --no-install-recommends supervisor \
     && rm -rf /var/lib/apt/lists/*
 
 
-ADD docker-ubuntu-vnc-desktop/noVNC /noVNC/
+ADD noVNC /noVNC
 ADD supervisord.conf /
 
 # Launch bash when launching the container
