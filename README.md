@@ -5,14 +5,14 @@ Docker container for the ROS (Robot Operating System) indigo base.
 
 get from docker hub:
 
-    docker pull osblinnikov/ros
-    docker run -p 6080:6080 -v `pwd`/workspaceSrc:/home/ros/workspace/src -t -i osblinnikov/ros
+    docker pull osblinnikov/rosdocker
+    docker run -p 6080:6080 -v `pwd`/workspaceSrc:/home/ros/workspace/src -t -i osblinnikov/rosdocker
 
 or to build container from dockerfile, type command in current directory:
 
     git clone https://github.com/osblinnikov/rosDocker.git
     cd rosDocker
-    docker build -t osblinnikov/ros .
+    docker build -t osblinnikov/rosdocker .
 
 To start the fresh built container simply type:
 
