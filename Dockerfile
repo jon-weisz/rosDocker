@@ -7,7 +7,7 @@
 # Use the ubuntu base image
 FROM ubuntu:trusty
 
-MAINTAINER Oleg Blinnikov, osblinnikov@gmail.com
+MAINTAINER Jon Weisz, jon.weisz@gmail.com
 
 # make sure the package repository is up to date
 RUN apt-get -y update
